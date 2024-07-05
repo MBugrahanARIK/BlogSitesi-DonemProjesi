@@ -1,0 +1,100 @@
+﻿@{
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+@model Tuple<string,bool, List<Category>>
+
+@if (Model.Item2 == true)
+{
+    <script>
+        $(document).ready(function () {
+            swal("Good job!", "You clicked the button!", {
+                icon: "success",
+                buttons: {
+                    confirm: {
+                        className: "btn btn-success",
+                    },
+                },
+            });
+        });
+    </script>
+}
+<form asp-controller="Admin" asp-action="NewContent" method="post">
+    <div class="col-md-12">
+        <div class="form-floating form-floating-custom mb-3">
+            <input type="text"
+                   class="form-control"
+                   id="title"
+                   name="title"
+                   placeholder="name@example.com" />
+            <label for="floatingInput">Başlık</label>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-floating form-floating-custom mb-3">
+            <select class="form-select"
+                    id="category"
+                    name="category"
+                    required>
+                <option selected>Kategori</option>
+                @foreach(var item in Model.Item3)
+                {
+                    <option value="@item.id">@item.name</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="form-floating form-floating-custom mb-3">
+            <input type="text"
+                   class="form-control"
+                   id="image"
+                   name="image"
+                   placeholder="Url:" />
+            <label for="floatingInput">Kapak Resmi</label>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <input type="text" id="content" name="content" />
+    </div>
+
+    <div class="col-md-8">
+        <div class="form-group">
+            <label for="largeInput">Anahtar kelimeler:</label>
+            <input type="text"
+                   class="form-control form-control"
+                   id="keywords"
+                   name="keywords"
+                   placeholder="Anahtar kelime, Anahtar kelime2" />
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="releaseDate">Yayınlanacak Tarih</label>
+            <input type="date" class="form-control" id="releaseDate" placeholder="dd/aa/yyyy" name="releaseDate" />
+        </div>
+    </div>
+
+
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="pull-right">
+                    <button type="submit" class="btn btn-primary">Ekle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <link rel="stylesheet" href="~/richtexteditor/rte_theme_default.css" />
+    <script type="text/javascript" src="~/richtexteditor/rte.js"></script>
+    <script type="text/javascript" src="~/richtexteditor/plugins/all_plugins.js"></script>
+    <script>
+        var editor1 = new RichTextEditor("#content");
+        //editor1.setHTMLCode("Use inline HTML or setHTMLCode to init the default content.");
+    </script>
+}

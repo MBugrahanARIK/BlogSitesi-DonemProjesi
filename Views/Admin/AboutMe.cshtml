@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="col-md-12">
+            <div id="div_editor1">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="pull-right">
+                <button class="btn btn-primary">Güncelle</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="~/richtexteditor/rte_theme_default.css" />
+    <script type="text/javascript" src="~/richtexteditor/rte.js"></script>
+    <script type="text/javascript" src="~/richtexteditor/plugins/all_plugins.js"></script>
+    <script>
+        var editor1 = new RichTextEditor("#div_editor1");
+        //editor1.setHTMLCode("Use inline HTML or setHTMLCode to init the default content.");
+    </script>
+}

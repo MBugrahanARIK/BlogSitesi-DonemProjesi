@@ -1,0 +1,159 @@
+﻿@{
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<!-- Filtreleme -->
+<div class="col-md-2">
+    <div class="card">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Gösterilecek İçerik</label>
+            <select class="form-select"
+                    id="exampleFormControlSelect1">
+                <option>10</option>
+                <option>25</option>
+                <option>50</option>
+                <option>100</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="col-md-2">
+    <div class="card">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Kullanıcı</label>
+            <select class="form-select"
+                    id="exampleFormControlSelect1">
+                <option>Kullanıcı Adı</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+<div class="col-md-2">
+    <div class="form-group">
+        <label for="email2">Başlangıç Tarihi</label>
+        <input type="date" class="form-control" id="email1" placeholder="dd/aa/yyyy" />
+    </div>
+</div>
+
+<div class="col-md-2">
+    <div class="form-group">
+        <label for="email2">Bitiş Tarihi</label>
+        <input type="date" class="form-control" id="email1" placeholder="dd/aa/yyyy" />
+    </div>
+</div>
+<!-- Filtreleme -->
+
+
+
+
+<div class="card-header">
+    <div class="d-flex align-items-center">
+        <h4 class="card-title">Add Row</h4>
+        <button class="btn btn-primary btn-round ms-auto">
+            <i class="fa fa-plus"></i>
+            Add Row
+        </button>
+    </div>
+</div>
+<div class="card-body">
+    <!-- Modal -->
+    <div class="modal fade"
+         id="addRowModal"
+         tabindex="-1"
+         role="dialog"
+         aria-hidden="true">
+    </div>
+
+    <div class="table-responsive">
+        <table id="add-row"
+               class="display table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Başlık</th>
+                    <th>Kullanıcı</th>
+                    <th>İçerik</th>
+                    <th>Eklenme Tarihi</th>
+                    <th style="width: 10%">İşlemler</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Başlık</th>
+                    <th>Kullanıcı</th>
+                    <th>İçerik</th>
+                    <th>Eklenme Tarihi</th>
+                    <th style="width: 10%">İşlemler</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div class="form-button-action">
+                            <button type="button"
+                                    data-bs-toggle="tooltip"
+                                    title=""
+                                    class="btn btn-link btn-primary btn-lg"
+                                    data-original-title="Edit Task">
+                                <i class="fas fa-comment"></i>
+                            </button>
+                                <button
+                                    asp-controller="Admin"
+                                    asp-action="DeleteContent"
+                                    asp-route-id=""
+                                    formmethod="post"
+                                    name="delete"
+                                    type="button"
+                                    data-bs-toggle="tooltip"
+                                    title=""
+                                    class="btn btn-link btn-danger"
+                                    data-original-title="Remove">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="demo">
+        <ul class="pagination pg-primary">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+@section Scripts {
+}
